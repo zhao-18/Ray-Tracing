@@ -8,6 +8,8 @@ int const DEPTH = 20;
 /* This fits in my screen. Adjust the amount of characters to be printed. */
 int const WIDTH = 470;
 int const HEIGHT = 162;
+
+/* DUE TO LIMITATION OF THE LANGUAGE */
 //double const ASPECT_RATIO = WIDTH/HEIGHT;
 double const ASPECT_RATIO = 470/162;
 
