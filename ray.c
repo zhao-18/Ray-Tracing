@@ -11,7 +11,7 @@ vector ray_at(ray v, double t) {
   return u;
 }
 
-/*
+/* -- How sphere works --
  * Formula for a sphere of radius r, centered at C(Cx, Cy, Cz) is
  * (x - Cx)^2 + (y - Cy)^2 + (z - Cz)^2 = r^2
  *
@@ -53,9 +53,7 @@ double sphere(vector const centre, double const radius, ray const r) {
 }
 
 vector shootRay(ray v, int depth) {
-  /*
-   * Adding a limit to how many times the ray are allowed to reflect.
-   */
+  // Adding a limit to how many times the ray are allowed to reflect.
   if (depth < 1) {
     vector col;
     fill_value(&col, 1, 1, 1);
@@ -73,9 +71,10 @@ vector shootRay(ray v, int depth) {
      * When x, y, and z is negative, the surface appears darker.
      */
     vector col = add_const(n, 1);
-    return col;
+    return col; //Return when ray hits object.
   }
 
+  // Reflective sphere
   vector sphere2;
   fill_value(&sphere2, 1, 0.5, -1.5);//Center
   t = sphere(sphere2, 0.5, v);
@@ -91,6 +90,7 @@ vector shootRay(ray v, int depth) {
     return col;
   }
 
+  // Reflective sphere
   vector sphere3;
   fill_value(&sphere3, -1.5, 0.5, -0.5);//Center
   t = sphere(sphere3, 0.8, v);
@@ -103,7 +103,7 @@ vector shootRay(ray v, int depth) {
     return col;
   }
 
-  //Ground is just a huge sphere.
+  //Ground
   vector ground;
   fill_value(&ground, 0, -100.5, 0);
   t = sphere(ground, 100, v);

@@ -23,6 +23,7 @@ void deleteScr(screen* scr) {
 void printScr(screen scr) {
   for (size_t i = scr.height-1; i >0 ; i--) {
     for (size_t j = 0; j < scr.width; j++) {
+      // List of letters that makes up brightness of the surface.
       if (scr.view[i][j] < 15) {
         printf("一");
       } else if (scr.view[i][j] < 30) {
@@ -48,11 +49,11 @@ void printScr(screen scr) {
       } else if (scr.view[i][j] < 180) {
         printf("##");
       } else if (scr.view[i][j] < 195) {
-        printf("HH");//
+        printf("HH");
       } else if (scr.view[i][j] < 210) {
-        printf("@@");//
+        printf("@@");
       } else if (scr.view[i][j] < 225) {
-        printf("MM");//
+        printf("MM");
       } else if (scr.view[i][j] < 240) {
         printf("WW");
       } else {
